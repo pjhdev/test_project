@@ -10,6 +10,8 @@ set :rbenv_ruby, '2.6.0'
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
 set :rbenv_roles, :all
+set :shared_children, %w(log config system upload)
+set :default_shell, :bash
 
 # default values # Default value for :linked_files is []
 set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
@@ -17,9 +19,23 @@ set :config_files, fetch(:linked_files)
 set :pty, true
 set :keep_releases, 5
 
-before 'deploy:check:linked_files', 'config:push'
+#before 'deploy:check:linked_files', 'config:push'
 
 namespace :deploy do
+  task :copy_config do
+    on release_roles :app do |role|
+      fetch(:linked_files).each do |linked_file|
+        user = role.user + "@" if role.user
+        hostname = role.hostname
+        linked_files(shared_path).each do |file|
+          run_locally do
+            execute :rsync, "config/#{file.to_s.gsub(/.*\/(.*)$/,"\\1")}", "#{user}#{hostname}:#{file.to_s.gsub(/(.*)\/[^\/]*$/, "\\1")}/"
+          end
+        end
+      end
+    end
+  end
+
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
@@ -29,6 +45,8 @@ namespace :deploy do
     end
   end
 end
+before "deploy:check:linked_files", "deploy:copy_config"
+set :keep_releases, 5
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
