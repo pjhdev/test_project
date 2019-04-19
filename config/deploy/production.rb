@@ -59,3 +59,7 @@
 #     auth_methods: %w(publickey password)
 #     # password: "please use keys"
 #   }
+
+server 'pjhdev.com', user: 'root', roles: %w{web app db}
+set :nginx_server_name, 'pjhdev.com'
+set :unicorn_workers, 4

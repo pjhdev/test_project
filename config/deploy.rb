@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.11.0"
 
-set :stages, %w(master development staging production)
+set :stages, %w(development staging production)
 set :application, 'test_project'
 set :repo_url, "git@github.com:zkdlwnfm/test_project.git"
 set :deploy_to, "/usr/share/nginx/html/#{fetch(:application)}"
