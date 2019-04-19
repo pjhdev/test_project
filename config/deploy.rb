@@ -3,7 +3,7 @@ lock "~> 3.11.0"
 
 set :stages, %w(master development staging production)
 set :application, 'test_project'
-set :repo_url, "git@github.com:[user-name]/#{fetch(:application)}.git"
+set :repo_url, "git@github.com:zkdlwnfm/test_project.git"
 set :deploy_to, "/usr/share/nginx/html/#{fetch(:application)}"
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_ruby, '2.6.0'
