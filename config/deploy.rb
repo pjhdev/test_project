@@ -14,7 +14,7 @@ set :shared_children, %w(log config system upload)
 set :default_shell, :bash
 
 # default values # Default value for :linked_files is []
-set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml')
+set :linked_files, fetch(:linked_files, []).push('config/database.yml', 'config/secrets.yml', 'config/cable.yml', 'config/application.yml')
 set :config_files, fetch(:linked_files)
 set :pty, true
 set :keep_releases, 5
