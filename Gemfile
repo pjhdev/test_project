@@ -59,6 +59,11 @@ group :development do
   gem "capistrano-rails", "~> 1.4", require: false
 end
 
+# for view
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'simple_form'
+
+# for google login
 gem 'devise'
 gem 'figaro'
 gem 'omniauth-google-oauth2'

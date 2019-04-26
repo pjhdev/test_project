@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root 'home#show'
+  root 'welcome#index'
+  #root 'home#show'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: 'home#show'
@@ -8,6 +9,5 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resources :home, only: [:show]
 
-  resources :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

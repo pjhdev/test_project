@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190424093300) do
+ActiveRecord::Schema.define(version: 20190426015420) do
 
   create_table "members", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "provider"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 20190424093300) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "microposts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.text "content"
-    t.integer "user_id"
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "title", comment: "글 제목"
+    t.text "content", comment: "글 내용"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
