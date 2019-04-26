@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# 디폴트 게시판 생성
+Bulletin.create! title: '공지사항', post_type: :bulletin
+Bulletin.create! title: '잡담', post_type: :blog
+Bulletin.create! title: '갤러리', post_type: :gallery

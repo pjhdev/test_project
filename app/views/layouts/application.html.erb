@@ -46,6 +46,8 @@
     </div>
   </div>
   <div class="container">
+    <!-- flash message 표시 -->
+    <%= render partial: "shared/flash_messages", flash: flash %>
     <!-- 아래의 yield 부분에 각 컨트롤러에서 실행된 action 의 결과가 html 로 렌더링 된 후 삽입된다. -->
     <%= yield %>
   </div>
