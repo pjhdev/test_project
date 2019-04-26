@@ -10,6 +10,10 @@
     <td><%= @post.content %></td>
   </tr>
   <tr>
+    <th>Image</th>
+    <td class='image'><%= image_tag(@post.picture_url(:thumb)) if @post.picture? %></td>
+  </tr>
+  <tr>
     <th>Created at</th>
     <td><%= @post.created_at %></td>
   </tr>
