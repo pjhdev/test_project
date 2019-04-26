@@ -59,6 +59,10 @@ group :development do
   gem "capistrano-rails", "~> 1.4", require: false
 end
 
+# jquery
+gem 'jquery-rails'
+gem 'turbolinks', "~> 5"
+
 # for view
 gem 'bootstrap-sass', '~> 3.3.6'
 gem 'simple_form'
