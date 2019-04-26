@@ -1,6 +1,7 @@
 require_relative 'boot'
 
 require 'rails/all'
+require "./app/modules/enums"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -11,7 +12,8 @@ module TestProject
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.time_zone = 'Asia/Seoul'
-    config.force_ssl = true
+    config.i18n.default_locale = :ko
+    #config.force_ssl = true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

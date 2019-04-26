@@ -71,3 +71,6 @@ gem 'simple_form'
 gem 'devise'
 gem 'figaro'
 gem 'omniauth-google-oauth2'
+
+# for localization
+gem 'rails-i18n'

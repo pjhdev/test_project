@@ -1,7 +1,9 @@
 class SessionsController < ApplicationController
+  skip_before_action :authenticate_user!
+
   def create
-    member = from_omniauth(request.env["omniauth.auth"])
-    session[:user_id] = member.id
+    user = from_omniauth(request.env["omniauth.auth"])
+    session[:user_id] = user.id
     redirect_to root_path
   end
 
@@ -12,13 +14,14 @@ class SessionsController < ApplicationController
 
   private
   def from_omniauth(auth)
-    member = Member.where(provider: auth.provider, uid: auth.uid).first_or_initialize
-    member.provider = auth.provider
-    member.uid = auth.uid
-    member.name = auth.info.name
-    member.oauth_token = auth.credentials.token
-    member.oauth_expires_at = Time.at(auth.credentials.expires_at)
-    member.save
-    return member
+    user = User.where(provider: auth.provider, uid: auth.uid).first_or_initialize
+    user.provider = auth.provider
+    user.uid = auth.uid
+    user.name = auth.info.name
+    user.oauth_token = auth.credentials.token
+    user.oauth_expires_at = Time.at(auth.credentials.expires_at)
+    user.save
+
+    user
   end
 end
