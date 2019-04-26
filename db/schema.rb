@@ -10,13 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190426055634) do
+ActiveRecord::Schema.define(version: 20190426093138) do
 
   create_table "bulletins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "post_type"
+    t.integer "post_type_cd", default: 0
   end
 
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
@@ -25,6 +27,7 @@ ActiveRecord::Schema.define(version: 20190426055634) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "bulletin_id"
+    t.string "picture"
     t.index ["bulletin_id"], name: "index_posts_on_bulletin_id"
   end
 

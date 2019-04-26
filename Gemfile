@@ -61,7 +61,6 @@ end
 
 # jquery
 gem 'jquery-rails'
-gem 'turbolinks', "~> 5"
 
 # for view
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -74,3 +73,13 @@ gem 'omniauth-google-oauth2'
 
 # for localization
 gem 'rails-i18n'
+
+# for model enum values
+gem 'simple_enum', '~> 2.3.0' , require: 'simple_enum/mongoid'
+
+# for image upload
+gem 'carrierwave'
+gem 'mini_magick'
+
+# for font
+gem "font-awesome-rails"

@@ -12,7 +12,7 @@ module TestProject
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
     config.time_zone = 'Asia/Seoul'
-    config.i18n.default_locale = :ko
+    config.i18n.default_locale = :en
     #config.force_ssl = true
 
     # Settings in config/environments/* take precedence over those specified here.

@@ -30,4 +30,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  bulletin:
+    n1: "공지사항"
+    n2: "잡담"
+    n3: "갤러리"

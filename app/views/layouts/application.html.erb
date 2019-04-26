@@ -28,6 +28,7 @@
         <ul class="nav navbar-nav">
           <li class="<%= params[:bulletin_id] == Bulletins::NOTICE ? 'active' : '' %>"><%= link_to I18n.t("bulletin.n#{Bulletins::NOTICE}"), bulletin_posts_path(Bulletins::NOTICE) %></li>
           <li class="<%= params[:bulletin_id] == Bulletins::CHAT ? 'active' : '' %>"><%= link_to I18n.t("bulletin.n#{Bulletins::CHAT}"), bulletin_posts_path(Bulletins::CHAT) %></li>
+          <li class="<%= params[:bulletin_id] == Bulletins::GALLERY ? 'active' : '' %>"><%= link_to I18n.t("bulletin.n#{Bulletins::GALLERY}"), bulletin_posts_path(Bulletins::GALLERY) %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
             <ul class="dropdown-menu">
