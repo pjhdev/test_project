@@ -1,12 +1,19 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  get 'comments/create'
 
+  get 'comments/destroy'
+
+
+  resources :posts do
+    resources :comments, only: [:create, :destroy]
+  end
   resources :posts
   # nested routing(중첩 라우팅)
   resources :bulletins do
     resources :posts
   end
 
+  root 'welcome#index'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: 'welcome#index'

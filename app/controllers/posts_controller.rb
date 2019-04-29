@@ -5,7 +5,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = @bulletin.present? ? @bulletin.posts.all : Post.all
+    if @bulletin.present?
+      Rails.logger.info(@bulletin.as_json)
+      @posts = @bulletin.posts.all
+    else
+      if params[:tag]
+        @posts = Post.tagged_with(params[:tag])
+      else
+        @posts = Post.all
+      end
+    end
   end
 
   # GET /posts/1
@@ -65,7 +74,9 @@ class PostsController < ApplicationController
   private
 
   def set_bulletin
-    @bulletin = Bulletin.find(params[:bulletin_id]) if params[:bulletin_id].present?
+    if params[:bulletin_id].present?
+      @bulletin = Bulletin.find(params[:bulletin_id])
+    end
   end
 
   # Use callbacks to share common setup or constraints between actions.
@@ -73,12 +84,16 @@ class PostsController < ApplicationController
     if @bulletin.present?
       @post = @bulletin.posts.find(params[:id])
     else
-      @post = Post.find(params[:id])
+      if params[:tag]
+        @post = Post.tagged_with(params[:tag])
+      else
+        @post = Post.find(params[:id])
+      end
     end
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def post_params
-    params.require(:post).permit(:title, :content, :picture, :picture_cache)
+    params.require(:post).permit(:title, :content, :picture, :picture_cache, :tag_list_fixed)
   end
 end

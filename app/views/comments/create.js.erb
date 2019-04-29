@@ -1,0 +1,10 @@
+<% if @comment.errors.size == 0 %>
+  if ($("li#no_contents").length == 1) {
+      $("li#no_contents").remove();//css("display","none");
+  }
+
+  $('<%=j render @comment %>').appendTo($("#comments_list_<%=@post.id %>")).hide().fadeIn('fast');
+  $("#comments_form_<%=@post.id %> form")[0].reset();
+<% else %>
+  alert("Please submit after commenting...");
+<% end %>

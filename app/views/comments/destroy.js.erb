@@ -1,0 +1,4 @@
+$("#comment_<%=@comment.id %>").remove();//slideUp('fast');
+if ($("#comments_list_<%=@post.id %> > li").length == 0) {
+    $("#comments_list_<%=@post.id %>").append('<li id=no_contents>No comments</li>').hide().fadeIn('fast');
+}

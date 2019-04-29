@@ -83,3 +83,6 @@ gem 'mini_magick'
 
 # for font
 gem "font-awesome-rails"
+
+# for tags
+gem 'acts-as-taggable-on', '~> 5.0'
