@@ -90,3 +90,4 @@ gem 'acts-as-taggable-on', '~> 5.0'
 # for infinite scroll
 gem 'will_paginate'
 gem 'jquery-masonry-rails'
+gem 'imagesLoaded_rails'
