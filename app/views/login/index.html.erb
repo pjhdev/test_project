@@ -1,0 +1,10 @@
+<% if current_user %>
+  redirect_to root_path
+<% else %>
+  <div>
+    <p>: <b>글 읽기 또는 작성을 위해 로그인을 해주세요.</b><br/></p>
+    <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google-login' %>
+    <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google-login' %>
+    <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google-login' %>
+  </div>
+<% end %>
