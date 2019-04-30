@@ -6,13 +6,12 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     if @bulletin.present?
-      Rails.logger.info(@bulletin.as_json)
-      @posts = @bulletin.posts.all
+      @posts = @bulletin.posts.paginate(:page => params[:page], :per_page => 15)
     else
       if params[:tag]
-        @posts = Post.tagged_with(params[:tag])
+        @posts = Post.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 15)
       else
-        @posts = Post.all
+        @posts = Post.paginate(:page => params[:page], :per_page => 15)
       end
     end
   end

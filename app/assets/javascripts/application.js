@@ -13,5 +13,9 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require rails-ujs
 //= require turbolinks
+//= require masonry.pkgd
+//= require imagesloaded
+//= require jquery.infinitescroll.min
 //= require_tree .

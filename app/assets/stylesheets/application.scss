@@ -12,6 +12,9 @@ $navbar-default-link-hover-bg: black;
 @import "posts";
 @import "comments";
 
+// for infinite scroll
+@import "scaffolds";
+
 body { padding-top: 60px; }
 
 .google-login {

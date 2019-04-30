@@ -82,7 +82,11 @@ gem 'carrierwave'
 gem 'mini_magick'
 
 # for font
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 # for tags
 gem 'acts-as-taggable-on', '~> 5.0'
+
+# for infinite scroll
+gem 'will_paginate'
+gem 'jquery-masonry-rails'
