@@ -13,6 +13,7 @@ module TestProject
     config.load_defaults 5.1
     config.time_zone = 'Asia/Seoul'
     config.i18n.default_locale = :en
+    config.assets.paths << "#{Rails.root}/app/assets/videos"
     #config.force_ssl = true
 
     # Settings in config/environments/* take precedence over those specified here.

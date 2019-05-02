@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   def authenticate_user!
     current_user
     if @current_user.nil?
-      redirect_to root_path
+      redirect_to login_index_path
     end
   end
 end

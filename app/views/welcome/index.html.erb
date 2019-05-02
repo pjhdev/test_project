@@ -1,12 +1,2 @@
-<h2>PJHDEV BLOG <small>에 오신 것을 환영합니다.</small></h2>
-<div>
-  <% if current_user %>
-    Signed in as <strong><%= current_user.name %></strong>!
-    <%= button_to "Sign out", signout_path, id: "sign_out", class: 'google-login' %>
-  <% else %>
-    <p>: <b>글 읽기 또는 작성을 위해 로그인을 해주세요.</b><br/></p>
-    <%= link_to "Login page", login_index_path %>
-    <!--<p>: <b>글 읽기 또는 작성을 위해 로그인을 해주세요.</b><br/></p>
-    <%#= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google-login' %>-->
-  <% end %>
-</div>
+<h2 class="font_color">PJHDEV BLOG <small class="font_color">에 오신 것을 환영합니다.</small></h2>
+<%= render "background/index"%>

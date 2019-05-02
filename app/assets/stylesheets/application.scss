@@ -15,12 +15,57 @@ $navbar-default-link-hover-bg: black;
 // for infinite scroll
 @import "scaffolds";
 
+.font_color {
+  color: whitesmoke;
+  position: absolute;
+  z-index: 1;
+}
+
+.container{
+  position: relative;
+}
+
 body { padding-top: 60px; }
 
-.google-login {
+.google_login {
   width: 220px;
   height: 50px;
   background-image: asset-data-url('google.png');
   background-repeat: no-repeat;
   background-size: 40px;
+}
+
+.index_background_image {
+  background-image: asset-data-url('index_background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-color: #464646;
+
+  @media only screen and (min-width: 1150px)  {
+    body {
+      background-image: asset-data-url('index_background.jpg');
+    }
+  }
+}
+
+.sns_login {
+  width: 100px;
+  height: 25px;
+  background-repeat: no-repeat;
+  background-size: 40px;
+  position: absolute;
+  z-index: 1;
+}
+
+.video {
+  position: fixed;
+  top: 50%; left: 50%;
+  z-index: 1;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
 }
