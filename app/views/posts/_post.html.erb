@@ -1,19 +1,16 @@
 <!-- infinite scroll 방식일 때 post 처리 방식 -->
 <% if params["bulletin_id"].to_i == Bulletins::GALLERY %>
-  <div class='post grid-item'>
-    <div class="post-title">
-      <%= post.title %>
+  <%= link_to [post.bulletin, post] do %>
+    <div class='post grid-item'>
+      <div class="post-title">
+        <%= post.title %>
+      </div>
+      <div class="post-content">
+        <%= post.content %>
+      </div>
+      <div class='image'><%= image_tag(post.picture_url(:thumb)) if post.picture? %></div>
     </div>
-    <div class="post-content">
-      <%= post.content %>
-    </div>
-    <div class='image'><%= link_to(image_tag(post.picture_url(:thumb)), [post.bulletin, post]) if post.picture? %></div>
-    <div class='post-actions'>
-      <%= link_to fa_icon('eye'), [post.bulletin, post] %>
-      <%= link_to fa_icon('edit'), edit_bulletin_post_path(post.bulletin, post) %>
-      <%= link_to fa_icon('trash'), [post.bulletin, post], method: :delete, data: { confirm: 'Are you sure?' } %>
-    </div>
-  </div>
+  <% end %>
 <% else %>
   <!-- tag 검색 될 때 post 처리 방식 -->
   <li>
