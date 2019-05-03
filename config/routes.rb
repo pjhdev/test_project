@@ -22,5 +22,9 @@ Rails.application.routes.draw do
   resources :login, only: [:index, :login]
 
   resources :sessions, only: [:create, :destroy]
+
+  controller :uad do
+    post '/member', action: :index
+  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
