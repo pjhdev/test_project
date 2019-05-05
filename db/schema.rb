@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190429080151) do
+ActiveRecord::Schema.define(version: 20190505123606) do
 
   create_table "bulletins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "title"
-    t.text "description"
+    t.string "title", comment: "게시판 제목"
+    t.text "description", comment: "게시판 설명"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "post_type"
@@ -29,9 +29,27 @@ ActiveRecord::Schema.define(version: 20190429080151) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
+  create_table "members", primary_key: "seq", id: :integer, comment: "시퀀스", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci" do |t|
+    t.string "id", limit: 20, null: false, comment: "아이디"
+    t.string "pwd", limit: 100, null: false, comment: "비밀번호"
+    t.integer "is_admin", null: false, comment: "관리자 여부"
+    t.string "name", limit: 20, comment: "이름"
+    t.string "phone_number", limit: 15, comment: "연락처"
+    t.integer "student_id", comment: "학번"
+    t.date "birth_day", comment: "생년월일"
+    t.integer "attd_cnt", comment: "누적 참가 횟수"
+    t.integer "is_worker", comment: "직장인 여부"
+    t.integer "is_benefit", comment: "혜택 여부"
+    t.string "profile_img", limit: 30, comment: "프로필 이미지"
+    t.string "session_id", limit: 30, comment: "세션ID"
+    t.datetime "session_limit", comment: "세션ID 유효 기간"
+    t.datetime "created_at", default: -> { "CURRENT_TIMESTAMP" }, null: false, comment: "생성일"
+    t.datetime "updated_at", default: -> { "CURRENT_TIMESTAMP" }, null: false, comment: "수정일"
+  end
+
   create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
-    t.string "title"
-    t.text "content"
+    t.string "title", comment: "게시글 제목"
+    t.text "content", comment: "게시글 내용"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "bulletin_id"
@@ -39,7 +57,7 @@ ActiveRecord::Schema.define(version: 20190429080151) do
     t.index ["bulletin_id"], name: "index_posts_on_bulletin_id"
   end
 
-  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "taggings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.bigint "tag_id"
     t.string "taggable_type"
     t.bigint "taggable_id"
@@ -60,7 +78,7 @@ ActiveRecord::Schema.define(version: 20190429080151) do
     t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
   end
 
-  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci" do |t|
+  create_table "tags", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "name", collation: "utf8_bin"
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
@@ -74,6 +92,9 @@ ActiveRecord::Schema.define(version: 20190429080151) do
     t.datetime "oauth_expires_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", limit: 100
+    t.string "password_digest", limit: 100
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "comments", "posts"

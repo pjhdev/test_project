@@ -1,0 +1,19 @@
+<%= provide(:title, '회원가입') %>
+
+<div class="container">
+
+  <%= bootstrap_form_for(@user, :html => {:class => 'form-signup'}) do |f| %>
+    <h2 class="form-signin-heading">Sign Up</h2>
+    <%= render partial: "shared/flash_messages", flash: flash %>
+
+    <%= f.text_field :name %>
+    <%= f.text_field :email %>
+    <%= f.password_field :password %>
+    <%= f.password_field :password_confirmation %>
+
+    <div class="text-centered">
+      <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+    </div>
+  <% end %>
+
+</div>

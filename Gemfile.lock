@@ -52,6 +52,9 @@ GEM
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
+    bootstrap_form (4.2.0)
+      actionpack (>= 5.0)
+      activemodel (>= 5.0)
     builder (3.2.3)
     byebug (11.0.1)
     capistrano (3.11.0)
@@ -158,6 +161,8 @@ GEM
       jwt (>= 2.0)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.5)
+    omniauth-naver (0.1.0)
+      omniauth-oauth2 (~> 1.2)
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
@@ -234,7 +239,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.0)
+    sqlite3 (1.4.1)
     sshkit (1.18.2)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
@@ -267,7 +272,9 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on (~> 5.0)
+  bcrypt (~> 3.1.7)
   bootstrap-sass (~> 3.3.6)
+  bootstrap_form (>= 4.2.0)
   byebug
   capistrano (~> 3.10)
   capistrano-rails (~> 1.4)
@@ -284,7 +291,9 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mini_magick
   mysql2
+  omniauth
   omniauth-google-oauth2
+  omniauth-naver (~> 0.1.0)
   puma (~> 3.7)
   rails (~> 5.1.7)
   rails-i18n
@@ -302,4 +311,4 @@ DEPENDENCIES
   will_paginate
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

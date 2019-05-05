@@ -69,6 +69,8 @@ gem 'simple_form'
 # for google login
 gem 'devise'
 gem 'figaro'
+gem 'omniauth'
+gem 'omniauth-naver', '~>0.1.0'
 gem 'omniauth-google-oauth2'
 
 # for localization
@@ -91,3 +93,9 @@ gem 'acts-as-taggable-on', '~> 5.0'
 gem 'will_paginate'
 gem 'jquery-masonry-rails'
 gem 'imagesLoaded_rails'
+
+# for bootstrap_form
+gem "bootstrap_form", ">= 4.2.0"
+
+# for password encrypt
+gem 'bcrypt', '~> 3.1.7'

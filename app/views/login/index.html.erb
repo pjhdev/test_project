@@ -4,9 +4,19 @@
   <div>
     <div>
       <p>: <b>글 읽기 또는 작성을 위해 로그인을 해주세요.</b><br/></p>
-      <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
-      <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
-      <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
+      <div>
+        <%= bootstrap_form_for(:login) do |f| %>
+          <%= f.email_field :email %>
+          <%= f.password_field :password %>
+          <%= f.submit "Log In", class: 'btn btn-default' %>
+        <% end %>
+
+        <br/><br/><br/><br/><br/>
+        <%= button_to "회원가입", new_user_path, class: 'google_login' %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
+        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
+      </div>
     </div>
   </div>
 <% end %>

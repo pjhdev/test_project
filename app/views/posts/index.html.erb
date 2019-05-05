@@ -3,6 +3,9 @@
 <% else %>
   <% if params[:tag] %>
     <h2>Posts tagged with "<%= params[:tag] %>" <small>( <%= @posts.size %> )</small></h2>
+  <% elsif !@searches.nil? %>
+    <% @posts = @searches %>
+    <h2>Searched Posts <small>( <%= @posts.size %> )</small></h2>
   <% else %>
     <h2>All Posts <small>( <%= @posts.size %> )</small></h2>
   <% end %>

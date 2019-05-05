@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'searches/result'
+
   get 'comments/create'
 
   get 'comments/destroy'
@@ -20,6 +22,16 @@ Rails.application.routes.draw do
   post 'signout', to: 'sessions#destroy', as: "signout"
 
   resources :login, only: [:index, :login]
+  controller :login do
+    get 'index', action: :index
+    post 'login', action: :login
+  end
+
+  resource :user do
+    post 'new', action: :new
+    post 'create', action: :create
+  end
+  resource :users
 
   resources :sessions, only: [:create, :destroy]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
