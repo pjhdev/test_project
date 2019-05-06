@@ -1,5 +1,5 @@
 <% if current_user %>
-  redirect_to root_path
+  <%= controller.redirect_to root_path %>
 <% else %>
   <div>
     <div>
@@ -10,12 +10,12 @@
           <%= f.password_field :password %>
           <%= f.submit "Log In", class: 'btn btn-default' %>
         <% end %>
+        <%= button_to "회원가입", new_user_path, class: 'btn btn-default' %>
 
         <br/><br/><br/><br/><br/>
-        <%= button_to "회원가입", new_user_path, class: 'google_login' %>
         <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
-        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
-        <%= button_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
+        <%= button_to "Sign in with Naver", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
+        <%= button_to "Sign in with KaKao", "/auth/google_oauth2", id: "sign_in", class: 'google_login' %>
       </div>
     </div>
   </div>

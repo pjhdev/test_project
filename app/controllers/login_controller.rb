@@ -10,8 +10,7 @@ class LoginController < ApplicationController
 
     user = User.find_by(email: email)
     respond_to do |format|
-      Rails.logger.info(passwd)
-      Rails.logger.info(user.password_digest)
+      HttpHelper.make_post_req
       if user.authenticate(passwd)
         session[:user_id] = user.id
         format.html { redirect_to bulletin_posts_path(Bulletins::GALLERY) }

@@ -35,6 +35,22 @@ body { padding-top: 60px; }
   background-size: 40px;
 }
 
+.naver_login {
+  width: 220px;
+  height: 50px;
+  background-image: asset-data-url('google.png');
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
+.kakao_login {
+  width: 220px;
+  height: 50px;
+  background-image: asset-data-url('google.png');
+  background-repeat: no-repeat;
+  background-size: 40px;
+}
+
 .index_background_image {
   background-image: asset-data-url('index_background.jpg');
   background-position: center center;
